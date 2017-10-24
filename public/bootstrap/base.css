@@ -1,0 +1,367 @@
+body {
+    background-color: #808080;
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+    padding-right: 0;
+    padding-left: 0;
+}
+.navbar-wrapper .navbar {
+    padding-right: 15px;
+    /*padding-left: 15px;*/
+    border-radius: 4px;
+    opacity: 0.9;
+}
+.navbar-wrapper .navbar .container {
+    width: auto;
+}
+.navbar-brand {
+    color: black;
+    background-color: lightslategrey;
+    border-radius: 4px;
+}
+.navbar-default .navbar-nav .open .ling-dropdown-menu>li>a {
+    color: #fff;
+}
+.navbar-default .ling-nav>li>a {
+    color: #fff;
+}
+
+.ling-navbar {
+    border: 0 solid #e7e7e7;
+    background-color: #404040;
+}
+
+.ling-container{
+    width: 100%;
+}
+.ling-container-main{
+    margin-top: 60px;
+    padding:2px;
+}
+
+/* article list image title desc time .. */
+.ling-list-box {
+    padding: 0;
+    margin:0;
+}
+.ling-list-box li, ul {
+    list-style: none;
+}
+.ling-list-box .ling-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.ling-list li {
+    display: list-item;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    /*padding: 20px 0;*/
+    border-bottom: 1px solid #f2f2f2;
+    zoom: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.ling-list-box .ling-img-box {
+    position: relative;
+    float: left;
+    margin: 12px 10px 12px 0px;
+    /*width: 140px;*/
+    width: 37%;
+    height:auto;
+    max-height: 105px;
+    /*height:205px;*/
+    overflow: hidden;
+}
+
+.ling-img-box a {
+    width:100%;
+    height:100%;
+}
+.ling-img-box img {
+    width:100%;
+    height:auto;
+    max-height: 100%;
+}
+.ling-list-box .ling-txt-box {
+    margin-top: 15px;
+    overflow: hidden;
+    /*max-height: 150px;*/
+    /*min-height: 100px;*/
+    zoom: 1;
+}
+.ling-txt-box h3 {
+    font-size: 15px;
+    line-height: 17px;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
+}
+.abstract {
+    display: none;
+}
+.tips {
+    margin-bottom: 0px;
+    overflow:hidden;
+    zoom:1;
+    position:absolute;
+    bottom:0px;
+}
+.tips p{
+    font-size: 10px;
+}
+.ling-article {
+    position: relative;
+}
+
+.ling-main {
+    width: 100%;
+    position: relative;
+    min-height: 1px;
+    padding-right: 5px;
+    padding-left: 5px;
+    box-sizing: border-box;
+    display: block;
+    background-color: #FFFCEE;
+    padding-top: 1px;
+}
+.ling-main img {
+    max-width: 100%;
+}
+.blog-post-title {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.page-ling{
+    display: none;
+}
+.breadcrumb-ling {
+    background-color: #fcfcfc;
+    margin-bottom: 10px;
+    margin-top: -9px;
+}
+.ling-slick .image{
+    height: 180px;
+}
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+    /* Navbar positioning foo */
+    .navbar-wrapper {
+        position: static;
+        margin-top: 20px;
+    }
+    .navbar-wrapper .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .navbar-wrapper .navbar {
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    /* The navbar becomes detached from the top, so we round the corners */
+    .navbar-wrapper .navbar {
+        border-radius: 4px;
+    }
+    .navbar-default .navbar-nav .open .ling-dropdown-menu>li>a {
+        color: #777;
+    }
+    .navbar-default .ling-nav>li>a {
+        color: #777;
+    }
+    .ling-navbar {
+        border: 1px solid #e7e7e7;
+        background-color: palegreen;
+    }
+
+    .ling-container {
+        width: 1170px;
+    }
+    .ling-container-main{
+        margin-top: 0px;
+        padding: 0 15px;
+    }
+
+    .ling-main {
+        width: 66.66666667%;
+        float: left;
+        position: relative;
+        min-height: 1px;
+        padding-right: 15px;
+        padding-left: 15px;
+        box-sizing: border-box;
+        display: block;
+        background-color: #FFFCEE;
+    }
+    .ling-content-box {
+        width: 66.66666667%;
+    }
+    .ling-side-box {
+        width: 33.33333333%;
+    }
+
+    /* article list image title desc time .. */
+
+    .ling-list-box {
+        padding: 0;
+        margin:0;
+    }
+    .ling-list-box li, ul {
+        list-style: none;
+    }
+    .ling-list-box .ling-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+    .ling-list li {
+        display: list-item;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        border-bottom: 1px solid #f2f2f2;
+        zoom: 1;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ling-list-box .ling-img-box {
+        position: relative;
+        float: left;
+        margin: 20px 20px 20px 00px;
+        width: 170px;
+        height: 120px;
+        overflow: hidden;
+    }
+    .ling-img-box a {
+        width:100%;
+        height:100%;
+    }
+    .ling-img-box img {
+        width:100%;
+        height: 100%;
+    }
+    .ling-list-box .ling-txt-box {
+        margin-top: 20px;
+        overflow: hidden;
+        zoom: 1;
+    }
+    .ling-txt-box h3 {
+        font-size: 22px;
+        line-height: 30px;
+        margin: 0;
+        padding: 0;
+    }
+    .abstract {
+        display: block;
+        color: #888;height: 48px;overflow: hidden;padding-top: 6px;
+    }
+    .tips {
+        margin-bottom: auto;
+        overflow:auto;
+        zoom:1;
+        position:relative;
+    }
+    .tips p{
+        font-size: 14px;
+    }
+    .blog-post-title {
+        margin-bottom: 5px;
+        font-size: 30px;
+    }
+    .page-ling {
+        display: block;
+    }
+    .breadcrumb-ling {
+        background-color: #fcfcfc;
+        margin-bottom: 4px;
+        margin-top: 0px;
+    }
+    .ling-slick .image{
+        height: 300px;
+    }
+}
+
+
+.index-sidebar{
+    display: none;
+}
+
+.index-main{
+    padding: 0;
+}
+
+.index-main .index-li{
+    /*max-height:;*/
+    margin:0;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.index-li img{
+    margin: 10px 0px;
+}
+.index-main .index-label{
+    margin: 10px 0px;
+}
+
+.index-main .index-p{
+    display: none;
+}
+.index-main .index-img{
+    width:33.33333333%;
+    position: relative;
+    float: left;
+}
+.index-main .index-info{
+    width:66.66666666%;
+    position: relative;
+    float: left;
+}
+.index-main .index-h{
+    font-size: 13px;
+}
+
+/* css for mobile */
+@media (min-width: 678px) {
+    .index-sidebar {
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: block;
+        overflow-x: hidden;
+        overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    }
+    .index-main .index-p{
+        display: block;
+    }
+    .index-main .index-img{
+        width:25%;
+    }
+    .index-main .index-info{
+        width:75%;
+    }
+    .index-main .index-h{
+        font-size: 20px;
+    }
+}
