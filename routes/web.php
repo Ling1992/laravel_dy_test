@@ -18,15 +18,12 @@ Route::get('/', function () {
 Route::group(['middleware' => 'web','namespace' => 'Index'], function(){
     // 控制器在 "App\Http\Controllers\Index" 命名空间下
 
-    Route::get('/', ['uses'=>'IndexController@Index','as'=>'index']);
+    Route::get('/{category}', ['uses'=>'IndexController@Index','as'=>'index'])->where('category','[a-z_]{3,}');
 
-    Route::get('category/new', function(){
-        return redirect()->route('index');
-    });
+    Route::get('/Content/{id}',['uses'=>'IndexController@content','as'=>'content'])->where('id', '[0-9]+');
 
-    Route::get('category/{category}','IndexController@category')->where('category','[a-z_]{3,}');
 
-    Route::get('article/{id}',['uses'=>'IndexController@article','as'=>'article'])->where('id', '[0-9]+');
+
     // 接口
     Route::get('getList/{like?}','IndexController@getList');
     // 内部接口
@@ -39,4 +36,7 @@ Route::group(['middleware' => 'web','namespace' => 'Index'], function(){
     // 后台界面 观察 ip
     Route::get('ipList', 'adminController@index');
     Route::get('ipDetail/{ip}/{date}', 'adminController@detail')->where(['ip'=>'[0-9\.]+', 'date'=>'[0-9\-]+']);
+
+
+
 });
