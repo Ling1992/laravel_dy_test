@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class IpCollect
 {
@@ -20,7 +21,7 @@ class IpCollect
         DB::table("ip_collection")->insert([
             'ip'=>$request->ip(),
             'request_url'=>$request->getRequestUri(),
-            'user_agent'=>$request->userAgent()
+            'user_agent'=>$request->userAgent() ?? ""
         ]);
         info($request->ip());
         info($request->getRequestUri());
@@ -28,6 +29,10 @@ class IpCollect
 
         if (Cache::has("blacklist:".$request->ip()) || !$request->userAgent()) {
             return response("block", 503);
+        }
+        if (isMobile()) {
+            Log::info('是移动端访问');
+            $request->offsetSet('is_mobile',true);
         }
         return $next($request);
     }

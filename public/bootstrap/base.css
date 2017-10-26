@@ -126,7 +126,7 @@ body {
     bottom:0px;
 }
 .tips p{
-    font-size: 10px;
+    font-size: 15px;
 }
 .ling-article {
     position: relative;
@@ -288,7 +288,7 @@ body {
     }
     .blog-post-title {
         margin-bottom: 5px;
-        font-size: 30px;
+        font-size: 40px;
     }
     .page-ling {
         display: block;

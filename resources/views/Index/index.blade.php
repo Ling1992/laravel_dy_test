@@ -33,22 +33,19 @@
                         </div>
                     @endif
                     <div class="ling-txt-box">
-                        <h3><a class="btn-link" href="/Content/{{ $l->id }}" tabindex="-1">{{ $l->title }}</a></h3>
+                        <h3><a class="btn-link" href="/article/{{ $l->dy_id }}" tabindex="-1">{{ $l->title }}</a></h3>
                         <p class="abstract"></p>
                         <div class="tips">
-                            <p style="float:left; margin-right:10px; color: black;">{{ $l->category_id }}</p>
-                            <p style="float: left; margin-right:10px;">{{ format_time($l->update_time) }}</p>
-                            <p style="float: left; margin-right:10px;">{{ $l->update_time }}</p>
-
+                            <p style="float: left; margin-right:10px;">{{ date('Y-m-d', $l->update_time) }}</p>
                         </div>
                     </div>
                 </li>
             @endforeach
         </ul>
     </div> <!-- ling-list-box -->
-    {{--<div>--}}
-{{--        {{ $paginator->links('vendor/pagination/bootstrap-4') }}--}}
-    {{--</div>--}}
+    <div>
+        {{ $paginator->links('vendor/pagination/bootstrap-4') }}
+    </div>
 @endsection
 
 @section('js')

@@ -14,6 +14,9 @@ class ApiController extends Controller
         $xs = new XS("dyone");
         $doc = new XSDocument;  // 使用默认字符集
         $params = $request->all();
+        if (!isset($params['dy_id'])) {
+            return 'null';
+        }
         Log::info('ling',[$params['dy_id']]);
         $doc->setFields($params);
         $xs->index->update($doc);
