@@ -41,3 +41,5 @@ Route::group(['middleware' => 'web','namespace' => 'Index'], function(){
 
     Route::post('ling/addContent/dy/one','ApiController@addDyOne');
 });
+
+Route::get('/test2', 'Index\AttachController@test2');
