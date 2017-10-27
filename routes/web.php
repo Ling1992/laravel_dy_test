@@ -24,7 +24,7 @@ Route::group(['middleware' => 'web','namespace' => 'Index'], function(){
         return redirect()->route('index');
     });
 
-    Route::get('category/{category}','IndexController@category')->where('category','[a-z_]{2,}');
+    Route::get('category/{category}','IndexController@category')->where('category','[a-z3]{2,}');
 
     Route::get('article/{id}',['uses'=>'IndexController@article','as'=>'article'])->where('id', '[0-9]+');
     // 接口
@@ -42,4 +42,4 @@ Route::group(['middleware' => 'web','namespace' => 'Index'], function(){
     Route::post('ling/addContent/dy/one','ApiController@addDyOne');
 });
 
-Route::get('/test2', 'Index\AttachController@test2');
+Route::get('ling/test2', 'Index\AttachController@test2');
