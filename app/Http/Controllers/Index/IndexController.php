@@ -28,7 +28,7 @@ class IndexController extends Controller
             'dhdy'=>['key'=>'动画电影','name'=>'动画电影'],
             '3d'=>['key'=>'3D电影','name'=>'3D 电影'],
             'gj'=>['key'=>'国剧','name'=>'国产剧'],
-            'rh'=>['key'=>'日韩','name'=>'日韩剧'],
+            'rh'=>['key'=>'日韩剧','name'=>'日韩剧'],
             'mj'=>['key'=>'欧美剧','name'=>'欧美剧'],
             'zy'=>['key'=>'综艺','name'=>'综艺节目']
         ];
