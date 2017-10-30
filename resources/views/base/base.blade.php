@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {{--<!-- 站长 -->--}}
-    {{--<meta name="baidu-site-verification" content="xXN4NvYoFW" />--}}
-    {{--<!-- 360 -->--}}
-    {{--<meta name="360-site-verification" content="4f775ffdfd2567e54ad13073cb07369e" />--}}
+    <!-- 站长 -->
+    <meta name="baidu-site-verification" content="xXN4NvYoFW" />
+    <!-- 360 -->
+    <meta name="360-site-verification" content="4f775ffdfd2567e54ad13073cb07369e" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -19,7 +19,7 @@
 
     <title>
         @section('title')
-            57早知道
+            57大收录
         @show
     </title>
 
@@ -110,23 +110,23 @@
     });
 </script>
 
-{{--<!-- 百度统计 -->--}}
-{{--<script>--}}
-    {{--var _hmt = _hmt || [];--}}
-    {{--(function() {--}}
-        {{--var hm = document.createElement("script");--}}
-        {{--hm.src = "https://hm.baidu.com/hm.js?94e8b3a588e30f9d6ae660cdc60731c3";--}}
-        {{--var s = document.getElementsByTagName("script")[0];--}}
-        {{--s.parentNode.insertBefore(hm, s);--}}
-    {{--})();--}}
-{{--</script>--}}
+<!-- 百度统计 -->
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?94e8b3a588e30f9d6ae660cdc60731c3";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
 
-{{--<!-- 360 主动收录 -->--}}
-{{--<script>(function(){--}}
-        {{--var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?3c0038ae1f5880a0a591b308f53843d6":"https://jspassport.ssl.qhimg.com/11.0.1.js?3c0038ae1f5880a0a591b308f53843d6";--}}
-        {{--document.write('<script src="' + src + '" id="sozz"><\/script>');--}}
-    {{--})();--}}
-{{--</script>--}}
+<!-- 360 主动收录 -->
+<script>(function(){
+        var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?3c0038ae1f5880a0a591b308f53843d6":"https://jspassport.ssl.qhimg.com/11.0.1.js?3c0038ae1f5880a0a591b308f53843d6";
+        document.write('<script src="' + src + '" id="sozz"><\/script>');
+    })();
+</script>
 
 @section('js')
 @show

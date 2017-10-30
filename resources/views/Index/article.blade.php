@@ -5,11 +5,11 @@
 @endsection
 
 @section('des')
-    {{ filterTitle($data->f('article_id'),$data->f('title')) }}
+    {{ filterTitle($data->f('dy_id'),$data->f('title')) }}
 @endsection
 
 @section('title')
-    {{ filterTitle($data->f('article_id'),$data->f('title')) }}
+    {{ filterTitle($data->f('dy_id'),$data->f('title')) }}
     -
     @parent
 @endsection
@@ -35,7 +35,7 @@
             <div style="display: block;">
                 {!! $data->content !!}
             </div>
-            <p class="blog-post-meta">57早知道 ---------------------------------- </p>
+            <p class="blog-post-meta">57大收录 ---------------------------------- </p>
         </div>
     </div><!-- /.blog-post -->
 
