@@ -140,7 +140,7 @@ class IndexController extends Controller
                 $content = preg_replace('/<a[\S\s]*<\/a>/', '', $content);
             }
         }else{
-            $content = $content . '<a href="#">>>磁力电驴等链接使用说明<<</a>
+            $content = $content . '<a href="http://mp.weixin.qq.com/s/kLcblJIAuEH73OjLXhRf3A">>>磁力电驴等链接使用说明<<</a>
             <br>
             <a href="https://pan.baidu.com/login?adapt=pc">>>进入百度yun电脑版<<</a>';
         }
