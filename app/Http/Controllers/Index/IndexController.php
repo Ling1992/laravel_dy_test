@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use XS;
 use XSTokenizerScws;
@@ -126,10 +127,10 @@ class IndexController extends Controller
             }
         }
         $data->setFields(['keyWord'=>implode(', ', $temp)]);
+        $content = $data->content;
         if ( ! $request->input('is_mobile')) {
             $key_words1 = "下载地址";
             $key_words2 = "【下载地址】";
-            $content = $data->content;
             if (strpos($data->content, $key_words2)) {
                 $content = preg_replace("/{$key_words2}[\s\S]*/", '', $content);
             }else if (strrpos($data->content, $key_words1)) {
@@ -138,10 +139,12 @@ class IndexController extends Controller
                 $content = preg_replace('/<table[\S\s]*<\/table>/', '', $content);
                 $content = preg_replace('/<a[\S\s]*<\/a>/', '', $content);
             }
-
-            $data->setFields(['content'=>$content]);
+        }else{
+            $content = $content . '<a href="#">>>磁力电驴等链接使用说明<<</a>
+            <br>
+            <a href="https://pan.baidu.com/login?adapt=pc">>>进入百度yun电脑版<<</a>';
         }
-
+        $data->setFields(['content'=>$content]);
         return view('Index.article')
             ->with('data',$data)
             ->with('category_list',$this->category_list)  //菜单栏
@@ -163,6 +166,21 @@ class IndexController extends Controller
         $scheme->addField('update_time', array('type' => 'numeric'));
 
         return $scheme;
+    }
+    function Content($id)
+    {
+        Log::info($id);
+
+        $data = DB::table('dy_list')->where('id',$id)->first();
+
+        $content = DB::table("dy_content_0{$data->content_table_tag}")->where('id',$data->content_id)->first();
+        $data->content = $content->content;
+        return view('Index.content')
+            ->with('data',$data)
+            ->with('category_list',$this->category_list)  //菜单栏
+            ->with('category', 'new')  // 类型 key
+            ->with('recommendation', $this->recommendation) // 推荐
+            ;
     }
 
 
