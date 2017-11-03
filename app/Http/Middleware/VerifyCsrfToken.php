@@ -14,5 +14,6 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         'ling/addContent/dy/one',
+        'ling/addContent/dy/two',
     ];
 }
