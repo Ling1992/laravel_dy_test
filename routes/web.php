@@ -40,6 +40,7 @@ Route::group(['middleware' => 'web','namespace' => 'Index'], function(){
     Route::get('ipDetail/{ip}/{date}', 'adminController@detail')->where(['ip'=>'[0-9\.]+', 'date'=>'[0-9\-]+']);
 
     Route::post('ling/addContent/dy/one','ApiController@addDyOne');
+    Route::post('ling/addContent/dy/two','ApiController@addDyTwo');
 });
 
 //Route::get('ling/test2', 'Index\AttachController@test2');

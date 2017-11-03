@@ -22,4 +22,18 @@ class ApiController extends Controller
         $xs->index->update($doc);
         $xs->index->flushIndex();
     }
+
+    function addDyTwo(Request $request){
+
+        $xs = new XS("dytwo");
+        $doc = new XSDocument;  // 使用默认字符集
+        $params = $request->all();
+        if (!isset($params['dy_id'])) {
+            return 'null';
+        }
+        Log::info('ling',[$params['dy_id']]);
+        $doc->setFields($params);
+        $xs->index->update($doc);
+        $xs->index->flushIndex();
+    }
 }
