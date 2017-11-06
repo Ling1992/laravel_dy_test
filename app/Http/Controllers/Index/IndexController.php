@@ -34,7 +34,7 @@ class IndexController extends Controller
             'zy'=>['key'=>'综艺','name'=>'综艺节目']
         ];
 
-        $this->xs = new XS('dyone');
+        $this->xs = new XS('dytwo');
         $this->paginator = $paginator = new Paginator(null,20);
 
         //  阅读推荐
