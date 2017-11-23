@@ -14,6 +14,8 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        'App\Console\Commands\UpdateCache1',
+        'App\Console\Commands\UpdateCache2'
     ];
 
     /**
@@ -26,6 +28,22 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+
+
+        // UpdateCache1  6小时 更新一次
+        $schedule->command('ling:updateCache1')
+            ->cron("0 */6 * * *")
+            ->runInBackground()
+            ->sendOutputTo("./updateCache1.log")
+            ->withoutOverlapping()
+        ;
+        // UpdateCache2  1小时 更新一次
+        $schedule->command('ling:updateCache2')
+            ->hourly()
+            ->runInBackground()
+            ->sendOutputTo("./updateCache2.log")
+            ->withoutOverlapping()
+        ;
     }
 
     /**

@@ -14,7 +14,8 @@ use XSTokenizerScws;
 
 class IndexController extends Controller
 {
-    private $recommendation;
+    private $recommendation=[];
+    private $quan_ad_list=[];
     private $category_list;
     private $paginator;
     private $xs;
@@ -38,16 +39,21 @@ class IndexController extends Controller
         $this->paginator = $paginator = new Paginator(null,20);
 
         //  阅读推荐
-        $this->recommendation = Cache::get('recommendation');
-        if (!$this->recommendation) {
-            $xs = new XS('indexone');
-            $xs->search->setSort('create_date',false);
-            $xs->search->setQuery("category:娱乐");
-            $xs->search->setLimit(8);
-            $this->recommendation = $xs->search->search();
+        if (Cache::has('movie:recommendation')){
 
-            Cache::put('recommendation',$this->recommendation, 60*6); //6 小时
+            $this->recommendation = Cache::get('movie:recommendation');
+
         }
+
+        // 淘宝券 广告！！
+
+        if (Cache::has('quan_ad_list')){
+
+            $this->quan_ad_list = Cache::get('movie:quan_ad_list');
+
+        }
+
+
     }
 
     //

@@ -72,13 +72,13 @@ function format_time($dt=0)
 
 function filterKey($str){
 
-    $arr = \Illuminate\Support\Facades\Cache::get('key_arr');
+    $arr = \Illuminate\Support\Facades\Cache::get('movie:key_arr');
     if (!$arr) {
         ## 读取关键字文本
         $content = @file_get_contents(base_path('kwd.txt'));
         // 转换成数组
         $arr = explode("\n", $content);
-        \Illuminate\Support\Facades\Cache::put('key_arr',$arr,60*24*2);
+        \Illuminate\Support\Facades\Cache::put('movie:key_arr',$arr,60*24*2);
     }
     foreach ($arr as $v) {
         if ($v == '') continue;
@@ -104,10 +104,10 @@ function filterContent($content) {
 function filterTitle($id, $content){
     $title = $content;
     if ($content) {
-        $title = \Illuminate\Support\Facades\Cache::get('title_'.$id);
+        $title = \Illuminate\Support\Facades\Cache::get('movie:title_'.$id);
         if (!$title) {
             $title = filterKey($content);
-            \Illuminate\Support\Facades\Cache::put('title_'.$id,$title,60*24*2);
+            \Illuminate\Support\Facades\Cache::put('movie:title_'.$id,$title,60*24*2);
         }
     }
     return $title;
@@ -116,10 +116,10 @@ function filterTitle($id, $content){
 function filterAbstract($id, $content) {
     $abstract = $content;
     if ($content) {
-        $abstract = \Illuminate\Support\Facades\Cache::get('abstract_'.$id);
+        $abstract = \Illuminate\Support\Facades\Cache::get('movie:abstract_'.$id);
         if (!$abstract) {
             $abstract = filterKey($content);
-            \Illuminate\Support\Facades\Cache::put('abstract_'.$id,$abstract,60*24*2);
+            \Illuminate\Support\Facades\Cache::put('movie:abstract_'.$id,$abstract,60*24*2);
         }
     }
     return $abstract;
@@ -128,13 +128,13 @@ function filterAbstract($id, $content) {
 function filterArticle($id, $content) {
     $article = $content;
     if ($content) {
-        $article = \Illuminate\Support\Facades\Cache::get('article_'.$id);
+        $article = \Illuminate\Support\Facades\Cache::get('movie:article_'.$id);
         if (!$article) {
             $content = articleFilter($content);
             $content = htmlspecialchars_decode($content);
             $content = articleFilterAfter($content);
             $article = filterContent($content);
-            \Illuminate\Support\Facades\Cache::put('article_'.$id,$article,60*24*2);
+            \Illuminate\Support\Facades\Cache::put('movie:article_'.$id,$article,60*24*2);
         }
     }
     return $article;
