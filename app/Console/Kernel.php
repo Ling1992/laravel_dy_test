@@ -26,8 +26,12 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+         $schedule->command('inspire')
+             ->everyMinute()
+             ->runInBackground()
+             ->sendOutputTo("./inspire.log")
+             ->withoutOverlapping()
+         ;
 
 
         // UpdateCache1  6小时 更新一次
